@@ -1,0 +1,88 @@
+import React from "react";
+import { Link, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+
+export default function Companies({ companies }) {
+  return (
+    <section className="">
+      <div className="content">
+        <h2 className="border-b-2 border-black">Companies</h2>
+        {/* <p>
+          We take pride in identifying and investing in the most innovative
+          startups across a range of industries, from tech to healthcare to
+          sustainability and beyond.
+        </p> */}
+        <div className="company-row">
+          {companies.map(
+            ({
+              id,
+              name,
+              description,
+              person,
+              slug,
+            }: Queries.ContentfulCompany) => {
+              return (
+                <div className="company flex pt-5 pb-7" key={id}>
+                  <div className="company-info w-[50%] pr-5">
+                    <h3>{name}</h3>
+                    <p>{description?.description}</p>
+                    <Link
+                      to={`/${slug}`}
+                      className="my-4 inline-block border-2 border-black p-2 text-lg font-bold tracking-tight hover:bg-black hover:text-white"
+                    >
+                      Learn more
+                    </Link>
+                  </div>
+                  {person && (
+                    <div className="people w-[50%]">
+                      {person.map(
+                        ({ id, firstName, lastName, role, headshot }) => {
+                          return (
+                            <div
+                              className="person mb-4 flex  justify-between"
+                              key={id}
+                            >
+                              <div className="person-text p-4">
+                                <h4 className="">{`${firstName} ${lastName}`}</h4>
+                                <p className="">{role}</p>
+                              </div>
+                              <GatsbyImage
+                                image={headshot.gatsbyImageData}
+                                alt={headshot.title}
+                                className="w-[33%]"
+                              />
+                            </div>
+                          );
+                        }
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+export const query = graphql`
+  fragment CompanyInfo on ContentfulCompany {
+    id
+    name
+    slug
+    description {
+      description
+    }
+    person {
+      id
+      firstName
+      lastName
+      role
+      headshot {
+        title
+        gatsbyImageData(width: 300)
+      }
+    }
+  }
+`;
