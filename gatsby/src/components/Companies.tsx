@@ -66,23 +66,23 @@ export default function Companies({ companies }) {
     </section>
   );
 }
-export const query = graphql`
-  fragment CompanyInfo on ContentfulCompany {
-    id
-    name
-    slug
-    description {
-      description
-    }
-    person {
-      id
-      firstName
-      lastName
-      role
-      headshot {
-        title
-        gatsbyImageData(width: 300)
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   fragment CompanyInfo on ContentfulCompany {
+//     id
+//     name
+//     slug
+//     description {
+//       description
+//     }
+//     person {
+//       id
+//       firstName
+//       lastName
+//       role
+//       headshot {
+//         title
+//         gatsbyImageData(width: 300)
+//       }
+//     }
+//   }
+// `;
