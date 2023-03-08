@@ -17,6 +17,24 @@ const IndexPage: React.FC<PageProps<Queries.HomepageQuery>> = ({ data }) => {
 };
 
 export const query = graphql`
+  fragment CompanyInfo on ContentfulCompany {
+    id
+    name
+    slug
+    description {
+      description
+    }
+    person {
+      id
+      firstName
+      lastName
+      role
+      headshot {
+        title
+        gatsbyImageData(width: 300)
+      }
+    }
+  }
   query Homepage {
     allContentfulCompany {
       nodes {
