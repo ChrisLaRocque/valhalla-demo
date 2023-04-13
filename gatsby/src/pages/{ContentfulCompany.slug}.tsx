@@ -3,7 +3,17 @@ import { gql, createClient } from "@urql/core";
 
 export default function CompanyPage({ serverData }) {
   console.log(serverData);
-  return <main id="main"></main>;
+  const { contentfulCompany } = serverData;
+  const { name } = contentfulCompany;
+  return (
+    <main id="main">
+      <section className="mx-auto max-w-7xl">
+        <div className="text-wrapper my-12">
+          <h1>{name}</h1>
+        </div>
+      </section>
+    </main>
+  );
 }
 export async function getServerData({ params }) {
   const { slug } = params;
@@ -36,7 +46,7 @@ export async function getServerData({ params }) {
     .query(QUERY, { slug: { eq: slug } })
     .toPromise()
     .then(({ data }) => {
-      console.log("data", data);
+      // console.log("data", data);
       return data;
     })
     .catch((e) => console.error(e));
