@@ -4,7 +4,6 @@ import { Image } from "@unpic/react";
 import Layout from "../../components/Layout";
 
 export default function BlogPost({ data }) {
-  console.log("data", data);
   const {
     nodeArticle: {
       title,
