@@ -22,8 +22,8 @@ export default function Companies({ companies }) {
               slug,
             }: Queries.ContentfulCompany) => {
               return (
-                <div className="company flex pt-5 pb-7" key={id}>
-                  <div className="company-info w-[50%] pr-5">
+                <div className="company pt-5 pb-7 lg:flex" key={id}>
+                  <div className="company-info p-5 lg:w-[50%] lg:p-0 lg:pr-5">
                     <h3>{name}</h3>
                     <p>{description?.description}</p>
                     <Link
@@ -34,7 +34,7 @@ export default function Companies({ companies }) {
                     </Link>
                   </div>
                   {person && (
-                    <div className="people w-[50%]">
+                    <div className="people p-5 lg:w-[50%] lg:p-0">
                       {person.map(
                         ({ id, firstName, lastName, role, headshot }) => {
                           return (

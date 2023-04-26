@@ -1,5 +1,6 @@
-#main section {
-  @apply mx-auto max-w-7xl;
+#main section,
+nav {
+  @apply mx-auto max-w-7xl p-3 lg:p-0;
 }
 #main section .content {
   @apply items-center justify-between;
@@ -11,7 +12,7 @@
   @apply py-2 font-bold tracking-tight;
 }
 #main section h1 {
-  @apply text-5xl;
+  @apply mt-5 text-5xl;
 }
 #main section h2 {
   @apply text-3xl;
@@ -21,4 +22,7 @@
 }
 #main section h4 {
   @apply text-xl;
+}
+#main section p {
+  @apply my-5;
 }

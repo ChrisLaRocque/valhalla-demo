@@ -1,6 +1,7 @@
 import * as React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import "../styles/main.css";
+import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import Companies from "../components/Companies";
 
@@ -9,10 +10,10 @@ const IndexPage: React.FC<PageProps<Queries.HomepageQuery>> = ({ data }) => {
     allContentfulCompany: { nodes },
   } = data;
   return (
-    <main id="main">
+    <Layout>
       <Hero />
       <Companies companies={nodes} />
-    </main>
+    </Layout>
   );
 };
 
