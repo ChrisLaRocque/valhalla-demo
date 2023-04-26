@@ -1,7 +1,7 @@
 import React from "react";
 import { gql, createClient } from "@urql/core";
 import { Link } from "gatsby";
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 import { Image } from "@unpic/react";
 
 export default function CompanyPage({ serverData }) {

@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function Companies({ companies }) {
   return (
-    <section className="">
+    <section>
       <div className="content">
         <h2 className="border-b-2 border-black">Companies</h2>
         {/* <p>
@@ -27,7 +27,7 @@ export default function Companies({ companies }) {
                     <h3>{name}</h3>
                     <p>{description?.description}</p>
                     <Link
-                      to={`/${slug}`}
+                      to={`/companies/${slug}/`}
                       className="my-4 inline-block border-2 border-black p-2 text-lg font-bold tracking-tight hover:bg-black hover:text-white"
                     >
                       Learn more
