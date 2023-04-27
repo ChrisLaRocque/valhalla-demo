@@ -43,4 +43,6 @@ export const query = graphql`
 `;
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => (
+  <title>Home | Money &amp; Money Capital</title>
+);

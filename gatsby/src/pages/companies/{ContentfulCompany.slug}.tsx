@@ -1,6 +1,6 @@
 import React from "react";
 import { gql, createClient } from "@urql/core";
-import { Link } from "gatsby";
+import { Link, HeadFC } from "gatsby";
 import Layout from "../../components/Layout";
 import { Image } from "@unpic/react";
 
@@ -45,7 +45,14 @@ export default function CompanyPage({ serverData }) {
     </Layout>
   );
 }
-export async function getServerData({ params }) {
+export const Head: HeadFC = ({ serverData }) => {
+  const { contentfulCompany } = serverData;
+  const { name } = contentfulCompany;
+  return <title>{`${name} | Money &amp; Money Capital`}</title>;
+};
+export async function getServerData(props) {
+  // console.log("props", props);
+  const { params } = props;
   const { slug } = params;
   const client = createClient({
     url: process.env.VALHALLA_ENDPOINT,

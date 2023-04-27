@@ -1,5 +1,5 @@
 #main section,
-nav {
+#main nav {
   @apply mx-auto max-w-7xl p-3 lg:p-0;
 }
 #main section .content {
