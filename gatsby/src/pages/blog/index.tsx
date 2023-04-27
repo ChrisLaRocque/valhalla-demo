@@ -22,6 +22,7 @@ export default function BlogListPage({ data }) {
         nodes {
           drupal_id
           title
+          field_slug
         }
       }
     }
@@ -44,11 +45,17 @@ export default function BlogListPage({ data }) {
   }
   useEffect(() => {
     console.log("Articles saved in cookie", cookies.savedArticles);
-    if (typeof cookies.savedArticles === "undefined") return;
-    console.log("Getting articles from Valhalla");
-    getSaved(cookies.savedArticles);
+    if (
+      typeof cookies.savedArticles === "undefined" ||
+      cookies.savedArticles.length === 0
+    ) {
+      console.log("No articles saved in cookie");
+      return setSavedArticles([]);
+    } else {
+      console.log("Getting articles from Valhalla");
+      getSaved(cookies.savedArticles);
+    }
   }, [cookies]);
-
   return (
     <Layout>
       <section>
@@ -124,7 +131,13 @@ export default function BlogListPage({ data }) {
         <div className="justify-between gap-3 lg:flex">
           <ul>
             {savedArticles.map((article) => {
-              return <li key={article.drupal_id}>{article.title}</li>;
+              return (
+                <li key={article.drupal_id}>
+                  <Link to={`/blog/${article.field_slug}`}>
+                    {article.title}
+                  </Link>
+                </li>
+              );
             })}
           </ul>
         </div>
