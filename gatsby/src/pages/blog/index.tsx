@@ -37,13 +37,15 @@ export default function BlogListPage({ data }) {
         const {
           allNodeArticle: { nodes },
         } = data;
+        console.log("Found articles", nodes);
         return setSavedArticles(nodes);
       })
       .catch((e) => console.error(e));
   }
   useEffect(() => {
-    console.log("related", cookies.savedArticles);
+    console.log("Articles saved in cookie", cookies.savedArticles);
     if (typeof cookies.savedArticles === "undefined") return;
+    console.log("Getting articles from Valhalla");
     getSaved(cookies.savedArticles);
   }, [cookies]);
 

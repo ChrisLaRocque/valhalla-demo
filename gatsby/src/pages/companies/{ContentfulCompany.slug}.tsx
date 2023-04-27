@@ -55,7 +55,7 @@ export async function getServerData(props) {
   const { params } = props;
   const { slug } = params;
   const client = createClient({
-    url: process.env.VALHALLA_ENDPOINT,
+    url: process.env.GATSBY_VALHALLA_ENDPOINT,
   });
 
   const QUERY = `
