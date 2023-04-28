@@ -1,3 +1,6 @@
+/**
+ * Statically rendered individual article page
+ */
 import React from "react";
 import { graphql, HeadFC } from "gatsby";
 import { Image } from "@unpic/react";

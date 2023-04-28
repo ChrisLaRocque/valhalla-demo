@@ -1,5 +1,9 @@
+/**
+ * Fully SSR'd page with data coming from both Drupal and Contentful with
+ * 1 API call to Netlify Connect
+ */
 import React from "react";
-import { gql, createClient } from "@urql/core";
+import { createClient } from "@urql/core";
 import { Link, HeadFC } from "gatsby";
 import Layout from "../../components/Layout";
 import { Image } from "@unpic/react";

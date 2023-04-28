@@ -25,7 +25,7 @@ export default function Companies({ companies }) {
                 <div className="company pt-5 pb-7 lg:flex" key={id}>
                   <div className="company-info p-5 lg:w-[50%] lg:p-0 lg:pr-5">
                     <h3>{name}</h3>
-                    <p>{description?.description}</p>
+                    <p style={{ marginTop: "0" }}>{description?.description}</p>
                     <Link
                       to={`/companies/${slug}/`}
                       className="my-4 inline-block border-2 border-black p-2 text-lg font-bold tracking-tight hover:bg-black hover:text-white"
