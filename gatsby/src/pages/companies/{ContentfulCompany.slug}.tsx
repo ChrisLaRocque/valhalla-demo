@@ -6,6 +6,7 @@ import React from "react";
 import { createClient } from "@urql/core";
 import { Link, HeadFC } from "gatsby";
 import Layout from "../../components/Layout";
+import Logo from "../../components/Logo";
 import { Image } from "@unpic/react";
 
 export default function CompanyPage({ serverData }) {
@@ -21,7 +22,11 @@ export default function CompanyPage({ serverData }) {
     <Layout>
       <section>
         <div className="text-wrapper my-12">
-          <h1>{name}</h1>
+          <div className="header-wrapper flex justify-between">
+            <h1>{name}</h1>
+            <Logo and="contentful" />
+          </div>
+
           <Image
             src={url}
             layout="constrained"
@@ -33,7 +38,10 @@ export default function CompanyPage({ serverData }) {
           <p>{description.description}</p>
         </div>
         <div id="related-articles">
-          <h2>{`Articles related to ${name}`}</h2>
+          <div className="header-two-wrapper flex justify-between">
+            <h2>{`Articles related to ${name}`}</h2>
+            <Logo and="drupal" />
+          </div>
           <ul>
             {relatedArticles.map(({ id, title, field_slug }) => {
               return (

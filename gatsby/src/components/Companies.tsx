@@ -1,12 +1,17 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import Logo from "../components/Logo";
 
 export default function Companies({ companies }) {
   return (
     <section>
       <div className="content">
-        <h2 className="border-b-2 border-black">Companies</h2>
+        <div className="heder-wrapper flex justify-between border-b-2 border-black">
+          <h2 className="">Companies</h2>
+          {/* <Logo and="contentful" /> */}
+        </div>
+
         {/* <p>
           We take pride in identifying and investing in the most innovative
           startups across a range of industries, from tech to healthcare to
