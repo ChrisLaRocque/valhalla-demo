@@ -1,8 +1,11 @@
 import React from "react";
 
-export default function Logo({ fill = "currentColor", and = "" }) {
+export default function Logo({ fill = "#181A1C", and = "" }) {
   return (
-    <div id="logo-wrapper" className="flex items-center justify-between gap-1">
+    <div
+      id="logo-wrapper"
+      className={`flex items-center justify-between gap-1`}
+    >
       <svg
         width="128"
         height="128"

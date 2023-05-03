@@ -51,6 +51,7 @@ export default function Companies({ companies }) {
                                 <h4 className="">{`${firstName} ${lastName}`}</h4>
                                 <p className="">{role}</p>
                               </div>
+
                               <GatsbyImage
                                 image={headshot.gatsbyImageData}
                                 alt={headshot.title}

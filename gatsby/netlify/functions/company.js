@@ -6,10 +6,18 @@ const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 exports.handler = async function (event, context) {
+  // console.log("event", event);
+  const {
+    queryStringParameters: { slug },
+  } = event;
   const entry = await client
-    .getEntry("CQcaFUi85d8nTgosNnWvx")
-    .then((entry) => {
-      return entry;
+    .getEntries({
+      content_type: "company",
+      "fields.slug": slug,
+    })
+    .then(({ items }) => {
+      const { fields } = items[0];
+      return fields;
     })
     .catch((err) => console.log(err));
   return {

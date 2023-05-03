@@ -5,6 +5,7 @@
  */
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
+import Logo from "../../components/Logo";
 import { Link, graphql, HeadFC } from "gatsby";
 import { useCookies } from "react-cookie";
 import { Image } from "@unpic/react";
@@ -162,10 +163,12 @@ export default function BlogListPage({ data }) {
             )}
           </div>
         </div>
-        {/* </section>
-      <section> */}
+
         <div className="saved-articles border-l-2 lg:w-1/4 lg:border-slate-500 lg:px-3">
-          <h3>Your saved articles</h3>
+          <div className="header-wrapper flex justify-between">
+            <h3>Your saved articles</h3>
+            <Logo and="drupal" />
+          </div>
           <div className="justify-between gap-3 lg:flex">
             <ul className="w-full">
               {savedArticles.map((article) => {
