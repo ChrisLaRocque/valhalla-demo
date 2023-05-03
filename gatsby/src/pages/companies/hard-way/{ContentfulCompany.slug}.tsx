@@ -37,7 +37,6 @@ export default function CompanyPage({ serverData }) {
         <div className="text-wrapper my-12">
           <div className="header-wrapper flex justify-between">
             <h1>{name}</h1>
-            <Logo and="contentful" />
           </div>
 
           <Image
@@ -53,7 +52,6 @@ export default function CompanyPage({ serverData }) {
         <div id="related-articles">
           <div className="header-two-wrapper flex justify-between">
             <h2>{`Articles related to ${name}`}</h2>
-            <Logo and="drupal" />
           </div>
           <ul>
             {relatedArticles.map(
