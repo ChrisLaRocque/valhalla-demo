@@ -86,10 +86,10 @@ export async function getServerData(props) {
   const date = new Date();
   const renderedAt = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
   const contentfulData = await fetch(
-    `http://localhost:8888/.netlify/functions/company?slug=${slug}`
+    `https://netlify-connect-demo.netlify.app/.netlify/functions/company?slug=${slug}`
   ).then((res) => res.json());
   const articleData = await fetch(
-    `http://localhost:8888/.netlify/functions/article?slug=${slug}`
+    `https://netlify-connect-demo.netlify.app/.netlify/functions/article?slug=${slug}`
   ).then((res) => res.json());
 
   const data = await Promise.all([contentfulData, articleData]);
