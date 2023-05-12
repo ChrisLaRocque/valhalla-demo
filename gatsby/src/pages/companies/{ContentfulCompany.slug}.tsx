@@ -33,7 +33,7 @@ export default function CompanyPage({ serverData }) {
             width={imageWidth}
             height={imageHeight}
             alt={logoDescription}
-            className="mt-3 mb-1 bg-slate-900"
+            className="mb-1 mt-3 bg-slate-900"
           />
           <p>{description.description}</p>
         </div>
@@ -95,7 +95,7 @@ export async function getServerData(props) {
           }
         }
       }
-      allNodeArticle {
+      allDrupalNodeArticle {
         nodes {
           id
           title
@@ -112,8 +112,8 @@ export async function getServerData(props) {
       // console.log("data", data);
       const date = new Date();
       const renderedAt = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-      const { allNodeArticle } = data;
-      const relatedArticles = allNodeArticle.nodes.filter(
+      const { allDrupalNodeArticle } = data;
+      const relatedArticles = allDrupalNodeArticle.nodes.filter(
         ({ field_related_companies }) => {
           return field_related_companies.includes(slug);
         }

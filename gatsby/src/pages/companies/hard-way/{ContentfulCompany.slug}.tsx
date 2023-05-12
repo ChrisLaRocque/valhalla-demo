@@ -5,14 +5,12 @@
 import React from "react";
 import { Link, HeadFC } from "gatsby";
 import Layout from "../../../components/Layout";
-import Logo from "../../../components/Logo";
 import { Image } from "@unpic/react";
 
 export default function CompanyPage({ serverData }) {
-  console.log("serverData", serverData);
+  //   console.log("serverData", serverData);
   const { data, renderedAt } = serverData;
   const [contentfulCompany, relatedArticles] = data;
-  console.log("related", relatedArticles);
   let {
     name,
     description,

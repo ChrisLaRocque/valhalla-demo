@@ -24,7 +24,7 @@ export default function BlogListPage({ data }) {
 
   const QUERY = `
   query SavedArticles ($ids: [String]) {
-    allNodeArticle(filter: {drupal_id: {in: $ids}}) {
+    allDrupalNodeArticle(filter: {drupal_id: {in: $ids}}) {
         nodes {
           drupal_id
           title
@@ -42,7 +42,7 @@ export default function BlogListPage({ data }) {
       .toPromise()
       .then(({ data }) => {
         const {
-          allNodeArticle: { nodes },
+          allDrupalNodeArticle: { nodes },
         } = data;
         console.log("Found articles", nodes);
         return setSavedArticles(nodes);
@@ -92,7 +92,7 @@ export default function BlogListPage({ data }) {
                       width={400}
                       height={225}
                       alt="A lovely bath"
-                      className="mt-3 mb-1 w-full"
+                      className="mb-1 mt-3 w-full"
                     />
                     <div>
                       <Link to={`/blog/${field_slug}/`}>
