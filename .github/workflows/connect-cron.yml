@@ -1,0 +1,11 @@
+name: Trigger Connect syncs to keep "hot and fresh"
+on:
+  schedule:
+    # Every weekday (M-F) at every hour
+    - cron: "0 * * * 1-5"
+jobs:
+  build:
+    name: Trigger Site Rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -X POST -d {} https://webhook.gatsbyjs.com/hooks/data_layer/data_source/publish/e9805684-23a7-4c0f-8d98-bd616400137a
