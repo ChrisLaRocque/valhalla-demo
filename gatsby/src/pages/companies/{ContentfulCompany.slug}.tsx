@@ -68,6 +68,13 @@ export async function getServerData(props) {
   const { slug } = params;
   const client = createClient({
     url: process.env.GATSBY_VALHALLA_ENDPOINT,
+    fetchOptions: () => {
+      return {
+        headers: {
+          Authorization: `Bearer ${process.env.GATSBY_VALHALLA_TOKEN}`,
+        },
+      };
+    },
   });
 
   const QUERY = `

@@ -35,6 +35,13 @@ export default function BlogListPage({ data }) {
   `;
   const client = new Client({
     url: process.env.GATSBY_VALHALLA_ENDPOINT,
+    fetchOptions: () => {
+      return {
+        headers: {
+          Authorization: `Bearer ${process.env.GATSBY_VALHALLA_TOKEN}`,
+        },
+      };
+    },
   });
   async function getSaved(ids) {
     const result = await client
